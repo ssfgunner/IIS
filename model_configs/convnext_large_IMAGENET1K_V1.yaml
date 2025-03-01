@@ -1,0 +1,13 @@
+data_path: ./concept_library/visual/segments
+model: convnext_large
+device: cuda
+batch_size: 200
+workers: 16
+resume: ''
+world_size: 1
+dist_url: env://
+interpolation: bilinear
+val_resize_size: 232
+val_crop_size: 224
+weights: IMAGENET1K_V1
+backend: pil
