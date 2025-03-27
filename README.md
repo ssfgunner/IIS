@@ -4,7 +4,7 @@
 
 ## Overview
 
-We propose a general framework to transform vision representations to different types of concepts for interpretable image classification and present a quantification called **Inherent Interpretability Score (IIS) **for vision representation interpretability.
+We propose a general framework to transform vision representations to different types of concepts for interpretable image classification and present a quantification called **Inherent Interpretability Score (IIS)** for vision representation interpretability.
 
 ![framework](./framework.png)
 
@@ -100,13 +100,13 @@ python segment_extractor.py --data_root ${path_of_concept_dataset} --save_root .
 python patch_extractor.py --data_root ${path_of_concept_dataset} --save_root ../concept_library/prototype/patches
 ```
 
-The *Text* concepts are listed words stored in a txt file. We utilize the concept library from [LF-CBM](https://openreview.net/pdf?id=GjfIZan5jN) for example. Users can define textual concepts in accordance with their specific requirements and tailored datasets. 
+The *Text* concepts are listed words stored in a txt file. We utilize the concept library from [LF-CBM](https://github.com/Trustworthy-ML-Lab/Label-free-CBM) for example. Users can define textual concepts in accordance with their specific requirements and tailored datasets. 
 
 #### Concept Vector Extraction:
 
 Then, we obtain vectors corresponding to the acquired concepts within the representation space. 
 
-Taking the representation space the penultimate layer of pre-trained [ResNet-50](https://openreview.net/pdf?id=GjfIZan5jN) for example:
+Taking the representation space the penultimate layer of pre-trained [ResNet-50](https://pytorch.org/vision/stable/models.html) for example:
 
 ```bash
 cd ./concept_extractor
@@ -153,4 +153,4 @@ python iis_computing.py
 
 ## Acknowledgements:
 
-Our code is modified from [CLIP]() and [LF-CBM](). We thank the authors for their open-sourced code.
+Our code is modified from [CLIP](https://github.com/openai/CLIP) and [LF-CBM](https://github.com/Trustworthy-ML-Lab/Label-free-CBM). We thank the authors for their open-sourced code.
