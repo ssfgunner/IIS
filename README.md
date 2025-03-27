@@ -45,7 +45,7 @@ If you find this repository or our paper useful, please consider citing and star
 
 ### Dataset Preparation:
 
-All datasets are put in  `./datasets` for default. Users can also modify the DATASET_ROOTS in `data_utils.py`:
+All datasets are put in  `./datasets` for default. Users can also modify the DATASET_ROOTS in `utils/data_utils.py`:
 
 ```python
 # Taking ImageNet-1K for example:

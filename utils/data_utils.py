@@ -6,17 +6,17 @@ import clip
 from pytorchcv.model_provider import get_model as ptcv_get_model
 
 DATASET_ROOTS = {
-    "imagenet_train": "/home/shufanshen/PICO/imagenet/train",
-    "imagenet_val": "/home/shufanshen/PICO/imagenet/val",
-    "cub_train":"./datasets/CUB_200_2011/train",
-    "cub_val":"./datasets/CUB_200_2011/val"
+    "imagenet_train": "./datasets/imagenet/train",
+    "imagenet_val": "./datasets/imagenet/val",
+    "cub_train":"./datasets/cub/train",
+    "cub_val":"./datasets/cub/val"
 }
 
 LABEL_FILES = {
                "imagenet":"../concept_extractor/data/imagenet_classes.txt",
-               "cifar10":"data/cifar10_classes.txt",
-               "cifar100":"data/cifar100_classes.txt",
-               "cub":"data/cub_classes.txt"}
+               "cifar10":"../concept_extractor/data/cifar10_classes.txt",
+               "cifar100":"../concept_extractor/data/cifar100_classes.txt",
+               "cub":"../concept_extractor/data/cub_classes.txt"}
 
 def get_resnet_imagenet_preprocess():
     target_mean = [0.485, 0.456, 0.406]
