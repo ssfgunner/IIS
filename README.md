@@ -82,7 +82,7 @@ bash emb_extractor.sh
 bash ip_train.sh
 ```
 
-### Run in stages:
+### [Optional] Run in stages:
 
 #### Concept Acquisition:
 
