@@ -1,7 +1,7 @@
 import os
 import os.path as osp
 import torch
-from utils.utils import load_pkl
+from utils import load_pkl
 from torch.utils.data import Dataset
 
 class emb_dataset(Dataset):

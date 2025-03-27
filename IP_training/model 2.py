@@ -3,10 +3,12 @@ import os
 import os.path as osp
 import torch.nn as nn
 import torch.nn.functional as F
+from mmaction.models import BaseHead
+from mmcv.cnn import trunc_normal_init
 from timm.models.layers import trunc_normal_
 import random
 from sklearn.cluster import KMeans
-from utils.utils import load_pkl
+from utils import load_pkl
 
 
 def gumbel_softmax(logits, tau=1, hard=False, eps=1e-10, dim=-1):

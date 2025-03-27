@@ -6,14 +6,14 @@ import clip
 from pytorchcv.model_provider import get_model as ptcv_get_model
 
 DATASET_ROOTS = {
-    "imagenet_train": "./ImageNet2012/train",
-    "imagenet_val": "./ImageNet2012/val",
+    "imagenet_train": "/home/shufanshen/PICO/imagenet/train",
+    "imagenet_val": "/home/shufanshen/PICO/imagenet/val",
     "cub_train":"./datasets/CUB_200_2011/train",
     "cub_val":"./datasets/CUB_200_2011/val"
 }
 
 LABEL_FILES = {
-               "imagenet":"data/imagenet_classes.txt",
+               "imagenet":"../concept_extractor/data/imagenet_classes.txt",
                "cifar10":"data/cifar10_classes.txt",
                "cifar100":"data/cifar100_classes.txt",
                "cub":"data/cub_classes.txt"}

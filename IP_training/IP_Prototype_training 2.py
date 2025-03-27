@@ -1,5 +1,3 @@
-import sys
-sys.path.append("..")
 import argparse
 import os
 import os.path as osp
@@ -9,9 +7,9 @@ from tqdm import tqdm
 from dataset import emb_dataset
 from model import Prototype_IP, Linear_CLS
 from loss import ce_criterion
-from utils.utils import build_optimizer
+from utils import build_optimizer
 from torch.utils.data import DataLoader
-from utils.data_utils import get_targets_only
+from data_utils import get_targets_only
 
     
 def get_args_parser(add_help=True):
@@ -43,10 +41,9 @@ concept_path = args.concept_path
 n_epoch = args.n_epoch
 batch_size = args.batch_size
 
-# lrs = (1e-3, 1e-2, 1e-1)
-# sparsity_ratios = (0, 0.1, 0.3, 0.5, 0.7, 0.9, 0.95, 0.98)
-lrs = (1e-2, )
-sparsity_ratios = (0.7, )
+lrs = (1e-3, 1e-2, 1e-1)
+sparsity_ratios = (0, 0.1, 0.3, 0.5, 0.7, 0.9, 0.95, 0.98)
+
 optimizer_type = 'adam'
 scheduler_type = 'exp'
 device = 'cuda'

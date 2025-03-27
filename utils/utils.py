@@ -11,12 +11,33 @@ import torch.optim as optim
 
 import math
 import clip
-import data_utils
+from . import data_utils
 
 from tqdm import tqdm
 from torch.utils.data import DataLoader
 
+import pickle
+import yaml
+import torch.optim as optim
 
+def build_optimizer(optimizer, scheduler, params, weight_decay=0.0, lr=0.08, opt_decay_step=40, opt_decay_rate=0.99, opt_restart=1):
+    if optimizer == 'adam':
+        optimizer = optim.Adam(params, lr=lr, weight_decay=weight_decay)
+    elif optimizer == 'sgd':
+        optimizer = optim.SGD(params, lr=lr, momentum=0.95, weight_decay=weight_decay)
+    elif optimizer == 'rmsprop':
+        optimizer = optim.RMSprop(params, lr=lr, weight_decay=weight_decay)
+    elif optimizer == 'adagrad':
+        optimizer = optim.Adagrad(params, lr=lr, weight_decay=weight_decay)
+    if scheduler == 'none':
+        return None, optimizer
+    elif scheduler == 'step':
+        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=opt_decay_step, gamma=opt_decay_rate)
+    elif scheduler == 'cos':
+        scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=opt_restart)
+    elif scheduler == 'exp':
+        scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=opt_decay_rate, last_epoch=-1)
+    return scheduler, optimizer
 
 
 PM_SUFFIX = {"max":"_max", "avg":""}
@@ -139,9 +160,9 @@ def save_activations(clip_name, target_name, target_layers, d_probe,
         target_model, target_preprocess = clip.load(target_name[5:], device=device)
     else:
         target_model, target_preprocess = data_utils.get_target_model(target_name, device)
-    for name, module in target_model.named_modules():
-        print(name)
-    #setup data
+    # for name, module in target_model.named_modules():
+    #     print(name)
+    # setup data
     data_c = data_utils.get_data(d_probe, clip_preprocess)
     data_t = data_utils.get_data(d_probe, target_preprocess)
 

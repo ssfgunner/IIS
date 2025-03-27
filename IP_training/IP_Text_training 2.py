@@ -1,11 +1,9 @@
-import sys
-sys.path.append("..")
 import torch
 import os
 import random
-from utils import utils
-from utils import data_utils
-from utils import similarity
+import utils
+import data_utils
+import similarity
 import argparse
 import datetime
 import json
@@ -46,7 +44,7 @@ def train_ip_and_save(args):
     if args.concept_set==None:
         args.concept_set = "data/concept_sets/{}_filtered.txt".format(args.dataset)
         
-    similarity_fn = similarity.mean_cubic_loss
+    similarity_fn = similarity.cos_similarity_cubed_single
     
     d_train = args.dataset + "_train"
     d_val = args.dataset + "_val"

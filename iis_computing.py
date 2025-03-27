@@ -1,9 +1,10 @@
 import os
 import os.path as osp
 from collections import defaultdict
+
 def compute_iis(data_dict, standard_acc):
     srs = sorted(data_dict.keys())
-    print(srs)
+    # print(srs)
     accs = [data_dict[sr] for sr in srs]
     iis = 0
     for i in range(len(accs)-1):
@@ -14,7 +15,7 @@ def compute_iis(data_dict, standard_acc):
 def get_args_parser(add_help=True):
     import argparse
 
-    parser = argparse.ArgumentParser(description="Grid Train Pipeline", add_help=add_help)
+    parser = argparse.ArgumentParser(description="Code for calculating IIS", add_help=add_help)
 
     parser.add_argument("--model_root", default='./IP_training/IP_Prototype/resnet50', type=str)
     return parser.parse_args()
