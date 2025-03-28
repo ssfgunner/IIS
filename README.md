@@ -74,15 +74,15 @@ We transform the vision representations to concepts for interpretable prediction
 
 ### Quick Start:
 
-For ease of running, we provide the following pipelines for Text concepts:
+For ease of running, we provide the following pipelines for Prototype and Text concepts:
 
 ```bash
-bash concept_extract.sh
-bash emb_extractor.sh
-bash ip_train.sh
+bash ./scripts/concept_extract.sh
+bash ./scripts/emb_extractor.sh
+bash ./scripts/ip_train.sh
 ```
 
-### [Optional] Run in stages:
+### Run in stages:
 
 #### Concept Acquisition:
 
